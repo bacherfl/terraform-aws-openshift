@@ -24,6 +24,9 @@ openshift:
 	- cat ./scripts/postinstall-node.sh | ssh -A ec2-user@$$(terraform output bastion-public_ip) ssh node2.openshift.local
 	echo "Complete! Wait a minute for hosts to restart, then run 'make browse-openshift' to login."
 
+prepare-keptn:
+	- cat ./scripts/prepare-master.sh | ssh -A ec2-user@$$(terraform output bastion-public_ip)
+
 # Destroy the infrastructure.
 destroy:
 	terraform init && terraform destroy -auto-approve
