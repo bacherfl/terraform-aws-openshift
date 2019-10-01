@@ -58,14 +58,14 @@ resource "aws_iam_policy_attachment" "openshift-attachment-forward-logs" {
 
 //  Create a instance profile for the role.
 resource "aws_iam_instance_profile" "openshift-instance-profile" {
-  name  = "openshift-instance-profile"
+  name  = "openshift-instance-profile-${var.cluster_id}"
   role = "${aws_iam_role.openshift-instance-role.name}"
 }
 
 //  Create a instance profile for the bastion. All profiles need a role, so use
 //  our simple openshift instance role.
 resource "aws_iam_instance_profile" "bastion-instance-profile" {
-  name  = "bastion-instance-profile"
+  name  = "bastion-instance-profile-${var.cluster_id}"
   role = "${aws_iam_role.openshift-instance-role.name}"
 }
 

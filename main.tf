@@ -13,7 +13,7 @@ module "openshift" {
   key_name        = "openshift-${var.cluster-id}"
   public_key_path = "${var.public_key_path}"
   cluster_name    = "openshift-cluster-flo"
-  cluster_id      = "openshift-cluster-${var.region}"
+  cluster_id      = "openshift-cluster-${var.region}-${var.cluster-id}"
 }
 
 //  Output some useful variables for quick SSH access etc.
