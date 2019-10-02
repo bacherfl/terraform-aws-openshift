@@ -6,11 +6,7 @@ variable ocp_user {
 }
 
 resource "aws_iam_role" "openshift-instance-role" {
-<<<<<<< HEAD
   name = "openshift-instance-role-${var.cluster_id}"
-=======
-  name = "openshift-instance-role-${var.ocp_user}"
->>>>>>> dae3d37e9c811d765ebadc64168e5f3991b97c6a
 
   assume_role_policy = <<EOF
 {
@@ -66,22 +62,14 @@ resource "aws_iam_policy_attachment" "openshift-attachment-forward-logs" {
 
 //  Create a instance profile for the role.
 resource "aws_iam_instance_profile" "openshift-instance-profile" {
-<<<<<<< HEAD
   name  = "openshift-instance-profile-${var.cluster_id}"
-=======
-  name  = "openshift-instance-profile-${var.ocp_user}"
->>>>>>> dae3d37e9c811d765ebadc64168e5f3991b97c6a
   role = "${aws_iam_role.openshift-instance-role.name}"
 }
 
 //  Create a instance profile for the bastion. All profiles need a role, so use
 //  our simple openshift instance role.
 resource "aws_iam_instance_profile" "bastion-instance-profile" {
-<<<<<<< HEAD
   name  = "bastion-instance-profile-${var.cluster_id}"
-=======
-  name  = "bastion-instance-profile-${var.ocp_user}"
->>>>>>> dae3d37e9c811d765ebadc64168e5f3991b97c6a
   role = "${aws_iam_role.openshift-instance-role.name}"
 }
 
