@@ -21,7 +21,7 @@ module "openshift" {
   subnet_cidr     = "10.0.1.0/24"
   key_name        = "openshift-${var.cluster-id}"
   public_key_path = "${var.public_key_path}"
-  cluster_name    = "openshift-cluster-flo"
+  cluster_name    = "openshift-cluster-${var.cluster-id}"
   cluster_id      = "openshift-cluster-${var.region}-${var.cluster-id}"
 }
 
